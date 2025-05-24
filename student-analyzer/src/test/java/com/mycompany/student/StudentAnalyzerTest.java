@@ -31,4 +31,5 @@ public class StudentAnalyzerTest {
         StudentAnalyzer analyzer = new StudentAnalyzer();
         assertEquals(0.0, analyzer.calculateValidAverage(Collections.emptyList()));
     }
+    
 }
