@@ -1,5 +1,5 @@
 
-# Java Student Analyzer 📊
+# Java Student Analyzer 
 
 ## Mô tả chức năng
 
