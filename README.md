@@ -30,7 +30,7 @@ Chương trình Java này cung cấp một lớp `StudentAnalyzer` có 2 phươn
 
 ---
 
-## Yêu cầu kiểm thử với JUnit ✅
+## Yêu cầu kiểm thử với JUnit 
 
 Sinh viên cần viết các test case sử dụng **JUnit 5** để kiểm thử đầy đủ các trường hợp sau:
 
@@ -46,4 +46,76 @@ Sinh viên cần viết các test case sử dụng **JUnit 5** để kiểm th�
 - Danh sách có điểm nhỏ hơn 0 hoặc lớn hơn 10.
 
 ---
+##  Kiểm thử đơn vị & đo độ bao phủ
+
+###  Công cụ sử dụng:
+
+* **JUnit 5** để viết test.
+* **JaCoCo** để đo độ bao phủ mã nguồn.
+
+---
+
+### ⚙️ Cài đặt JaCoCo trong Maven (`pom.xml`)
+
+```xml
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <version>0.8.8</version>
+      <executions>
+        <execution>
+          <goals><goal>prepare-agent</goal></goals>
+        </execution>
+        <execution>
+          <id>report</id>
+          <phase>verify</phase>
+          <goals><goal>report</goal></goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+```
+
+---
+
+###  Các bước thực hiện đo bao phủ
+
+1. **Chạy kiểm thử:**
+
+```bash
+mvn clean test
+```
+
+2. **Sinh báo cáo:**
+
+```bash
+mvn verify
+```
+
+3. **Mở kết quả tại:**
+
+```
+target/site/jacoco/index.html
+```
+
+---
+
+###  Kết quả đo bao phủ kiểm thử
+
+![image](https://github.com/user-attachments/assets/689d71bc-066c-4ead-b288-858c32203e3a)
+
+Tất cả các dòng mã và điều kiện rẽ nhánh trong `StudentAnalyzer` đã được kiểm thử đầy đủ với các test case, bao gồm:
+
+* Danh sách rỗng
+* Danh sách chứa giá trị `null`
+* Điểm hợp lệ và không hợp lệ
+* Trường hợp biên (0 và 10)
+
+---
+
+
+
 
